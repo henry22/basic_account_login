@@ -3,7 +3,7 @@
   <form class="needs-validation w-25" novalidate method="POST" action="/">
     <div class="form-group row">
       <div class="col">
-        <input type="email" class="form-control" id="inputEmail3" placeholder="Email" required>
+        <input type="email" class="form-control" id="inputEmail3" placeholder="Email" name="email" required>
         <div class="valid-feedback">
           Looks good!
         </div>
@@ -11,7 +11,7 @@
     </div>
     <div class="form-group row">
       <div class="col">
-        <input type="password" class="form-control" id="inputPassword3" placeholder="Password" required>
+        <input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="password" required>
         <div class="valid-feedback">
           Looks good!
         </div>
@@ -32,9 +32,10 @@
   window.addEventListener('load', function() {
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
     var forms = document.getElementsByClassName('needs-validation');
+
     // Loop over them and prevent submission
     var validation = Array.prototype.filter.call(forms, function(form) {
-      form.addEventListener('submit', function(event) {
+      form.addEventListener('input', function(event) {
         if (form.checkValidity() === false) {
           event.preventDefault();
           event.stopPropagation();

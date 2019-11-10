@@ -14,7 +14,8 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-  res.render('index')
+  const account = req.body
+  res.render('index', { account: account })
 })
 
 app.listen(port, () => console.log(`The server is listening on http:localhost:${port}`))
