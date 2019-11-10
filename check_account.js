@@ -1,4 +1,4 @@
-function checkAccount() {
+function checkAccount(account) {
   const users = [
     {
       firstName: 'Tony',
@@ -27,14 +27,9 @@ function checkAccount() {
     }
   ]
 
-  let account = {
-    email: 'peter@parker.com',
-    password: 'enajyram'
-  }
+  const matchedAccount = users.filter(user => (user.email === account.email && user.password === account.password))
 
-  const matchAccount = users.some(user => (user.email === account.email && user.password === account.password))
-
-  console.log('account match', matchAccount)
+  return matchedAccount
 }
 
-checkAccount()
+module.exports = checkAccount
